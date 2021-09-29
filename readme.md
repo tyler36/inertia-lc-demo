@@ -55,3 +55,5 @@
         },
     })
     ```
+
+- Configure laravel-mix to compile Vue3 with versioning
