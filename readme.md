@@ -18,5 +18,3 @@
   ```bash
   composer require inertiajs/inertia-laravel
   ```
-
-- Add root template
