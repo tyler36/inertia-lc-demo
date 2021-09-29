@@ -32,3 +32,10 @@
   ```bash
   npm install @inertiajs/inertia @inertiajs/inertia-vue3
   ```
+
+- Install Vue3 with single-file component support
+
+  ```bash
+  npm install vue@next
+  npm install -D @vue/compiler-sfc
+  ```
