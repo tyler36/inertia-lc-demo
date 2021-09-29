@@ -26,3 +26,9 @@
   $ php artisan inertia:middleware
   Middleware created successfully.
   ```
+
+- Install node dependencies for Vue3
+
+  ```bash
+  npm install @inertiajs/inertia @inertiajs/inertia-vue3
+  ```
