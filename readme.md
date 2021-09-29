@@ -12,3 +12,11 @@
     $ php artisan --verion
     Laravel Framework 8.62.0
     ```
+
+- Install `[inertia](https://inertiajs.com/server-side-setup)` via composer
+
+  ```bash
+  composer require inertiajs/inertia-laravel
+  ```
+
+- Add root template
