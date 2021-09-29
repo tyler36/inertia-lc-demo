@@ -18,3 +18,11 @@
   ```bash
   composer require inertiajs/inertia-laravel
   ```
+
+- Add root template
+- Add inertia middleware
+
+  ```bash
+  $ php artisan inertia:middleware
+  Middleware created successfully.
+  ```
