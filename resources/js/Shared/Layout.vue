@@ -1,7 +1,7 @@
 <template>
     <Head>
         <title>My App </title>
-        <meta type="description" content="Information about my app" head-key="description">
+        <meta name="description" content="Information about my app" head-key="description">
     </Head>
 
     <section class="p-6 bg-gray-100">
