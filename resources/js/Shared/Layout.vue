@@ -4,6 +4,7 @@
         <header class="flex justify-between">
             <div class="flex items-center">
                 <h1 class="font-bold text-lg">My App</h1>
+                <input type="text" value="My app">
                 <p class="text-sm ml-4">Welcome back, {{ username }}!</p>
             </div>
 
