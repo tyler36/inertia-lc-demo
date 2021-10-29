@@ -5,14 +5,15 @@
 
     <h1 class="text-3xl">Users</h1>
 
-    <div style="margin-top: 125vh">
-        <p>The current time is {{ time }}.</p>
-        <Link href="/users" class="text-blue-500 hover:underline" preserve-scroll>Refresh</Link>
-    </div>
+    <ul>
+        <li v-for="user in users"
+            :key="user.id"
+            v-text="user.name"></li>
+    </ul>
 </template>
 
 <script setup>
-defineProps({
-    time: String
-})
+    defineProps({
+        users: Array
+    })
 </script>
