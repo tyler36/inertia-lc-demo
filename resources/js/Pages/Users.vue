@@ -8,11 +8,9 @@
 </template>
 
 <script>
-import Layout from '../Shared/Layout.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 
 export default {
-    layout: Layout,
     components: {Link},
     props: {time: String},
 }
