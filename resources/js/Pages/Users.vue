@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <title>Settings</title>
+    </Head>
+
     <h1 class="text-3xl">Users</h1>
 
     <div style="margin-top: 125vh">
@@ -7,11 +11,8 @@
     </div>
 </template>
 
-<script>
-import {Link} from '@inertiajs/inertia-vue3';
-
-export default {
-    components: {Link},
-    props: {time: String},
-}
+<script setup>
+defineProps({
+    time: String
+})
 </script>
