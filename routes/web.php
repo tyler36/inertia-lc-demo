@@ -22,8 +22,10 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return Inertia::render('Users', [
         // 'users' => User::all(), // vue-devTools exposes ALL db columns
-        'users' => User::all()->map(fn($user) => [
-            'name' => $user->name
+        // 'users' => User::select(['id', 'name'])->paginate(),
+        'users' => User::paginate()->through(fn($user) => [
+            'id' => $user->id,
+            'name' => $user->name,
         ]),
     ]);
 });
