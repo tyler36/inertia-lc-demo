@@ -9,18 +9,22 @@
               Name
             </label>
             <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" required>
+
+            <div v-if="errors.name" v-text="errors.name" class="text-red-500 text-sm mt-1" />
         </div>
         <div class="mb-6">
             <label class="block mb-2 upercase font-bold text-xs text-gray-700" for="email">
               Email
             </label>
             <input v-model="form.email" class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
+            <div v-if="errors.email" v-text="errors.email" class="text-red-500 text-sm mt-1" />
         </div>
         <div class="mb-6">
             <label class="block mb-2 upercase font-bold text-xs text-gray-700" for="password">
                 Password
             </label>
-            <input v-model="form.password" class="border border-gray-400 p-2 w-full" type="password" name="password" id="password" required>
+            <input v-model="form.password" class="border border-gray-400 p-2 w-full" type="password" required name="password" id="password">
+            <div v-if="errors.password" v-text="errors.password" class="text-red-500 text-sm mt-1" />
         </div>
 
         <div class="mb-6">
@@ -36,6 +40,10 @@
 <script setup>
  import { Inertia } from '@inertiajs/inertia';
 import {reactive} from "vue";
+
+defineProps({
+  errors: Object,
+});
 
  let form = reactive({
    name: '',
