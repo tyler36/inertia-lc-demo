@@ -10,26 +10,27 @@
             </label>
             <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" required>
 
-            <div v-if="errors.name" v-text="errors.name" class="text-red-500 text-sm mt-1" />
+            <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500 text-sm mt-1" />
         </div>
         <div class="mb-6">
             <label class="block mb-2 upercase font-bold text-xs text-gray-700" for="email">
               Email
             </label>
             <input v-model="form.email" class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
-            <div v-if="errors.email" v-text="errors.email" class="text-red-500 text-sm mt-1" />
+            <div v-if="form.errors.email" v-text="form.errors.email" class="text-red-500 text-sm mt-1" />
         </div>
         <div class="mb-6">
             <label class="block mb-2 upercase font-bold text-xs text-gray-700" for="password">
                 Password
             </label>
-            <input v-model="form.password" class="border border-gray-400 p-2 w-full" type="password" required name="password" id="password">
-            <div v-if="errors.password" v-text="errors.password" class="text-red-500 text-sm mt-1" />
+            <input v-model="form.password" class="border border-gray-400 p-2 w-full" type="password" name="password" required id="password">
+            <div v-if="form.errors.password" v-text="form.errors.password" class="text-red-500 text-sm mt-1" />
         </div>
 
         <div class="mb-6">
             <button type="submit"
-                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 disabled:bg-gray-100"
+                    :disabled="form.processing"
             >
               Submit
             </button>
@@ -38,14 +39,9 @@
 </template>
 
 <script setup>
- import { Inertia } from '@inertiajs/inertia';
-import {reactive} from "vue";
+ import {useForm} from '@inertiajs/inertia-vue3';
 
-defineProps({
-  errors: Object,
-});
-
- let form = reactive({
+ let form = useForm({
    name: '',
    email: '',
    password: '',
@@ -53,6 +49,6 @@ defineProps({
 
 
  let submit = () => {
-   Inertia.post('/users', form);
- }
+   form.post('/users');
+ };
 </script>
