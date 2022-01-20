@@ -49,10 +49,11 @@
 </template>
 
 <script setup>
-import Pagination from "@/Shared/Pagination.vue"
-import {ref, watch} from "vue";
+import {ref, watch, defineAsyncComponent} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import debounce from "lodash/debounce";
+
+let Pagination = defineAsyncComponent(() => import("@/Shared/Pagination.vue"))
 
   let props = defineProps({
       users: Object,
