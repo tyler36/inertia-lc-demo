@@ -6,42 +6,21 @@
 
     <h1 class="text-3xl">Blog</h1>
 
-    <pre>
-        <code>
-            class Example
-            {
-                public function __construct()
-                {
-                    //
-                }
-            }
-        </code>
-    </pre>
-
-    <br/>
-
-    <div id="example2">
-        <pre>
-            <code ref="code">
-                class Example
-                {
-                    public function __construct()
-                    {
-                        //
-                    }
-                }
-            </code>
-        </pre>
-    </div>
+    <Highlight :code="snippet" />
 
 </template>
 
-<script>
-import {highlight, highlightElement } from '@/Services/SyntaxHighlighting';
+<script setup>
+import Highlight from '@/Components/Highlight';
 
-export default {
-    mounted() {
-        highlightElement(this.$refs.code);
+let snippet = `
+class Example
+{
+    public function __construct()
+    {
+        //
     }
 }
+`.trim();
+
 </script>
