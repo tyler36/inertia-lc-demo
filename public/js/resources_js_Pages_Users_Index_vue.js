@@ -15,6 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Composables_useCurrentUser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Composables/useCurrentUser */ "./resources/js/Composables/useCurrentUser");
+
 
 
 
@@ -40,15 +42,20 @@ __webpack_require__.r(__webpack_exports__);
         replace: true
       });
     }, 300));
+    var currentUser = (0,_Composables_useCurrentUser__WEBPACK_IMPORTED_MODULE_3__.useCurrentUser)();
+    console.log(currentUser.isALifer());
     var __returned__ = {
       Pagination: Pagination,
       props: props,
       search: search,
+      currentUser: currentUser,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch,
       defineAsyncComponent: vue__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
-      debounce: (lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default())
+      debounce: (lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()),
+      useCurrentUser: _Composables_useCurrentUser__WEBPACK_IMPORTED_MODULE_3__.useCurrentUser
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -193,6 +200,55 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./resources/js/Models/User.js":
+/*!*************************************!*\
+  !*** ./resources/js/Models/User.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ User)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var User = /*#__PURE__*/function () {
+  function User() {
+    var attributes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, User);
+
+    Object.assign(this, attributes);
+  }
+
+  _createClass(User, [{
+    key: "follows",
+    value: function follows(user) {
+      return true;
+    }
+  }, {
+    key: "is",
+    value: function is(user) {
+      return this.id === user.id;
+    }
+  }, {
+    key: "isALifer",
+    value: function isALifer() {
+      return false;
+    }
+  }]);
+
+  return User;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Users/Index.vue":
 /*!********************************************!*\
   !*** ./resources/js/Pages/Users/Index.vue ***!
@@ -246,6 +302,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_5cc3d152__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_5cc3d152__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=template&id=5cc3d152 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152");
+
+
+/***/ }),
+
+/***/ "./resources/js/Composables/useCurrentUser":
+/*!*************************************************!*\
+  !*** ./resources/js/Composables/useCurrentUser ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCurrentUser": () => (/* binding */ useCurrentUser)
+/* harmony export */ });
+/* harmony import */ var _Models_User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Models/User */ "./resources/js/Models/User.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+
+
+function useCurrentUser(){
+    return new _Models_User__WEBPACK_IMPORTED_MODULE_0__["default"](_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.page.props.auth.user);
+}
 
 
 /***/ })

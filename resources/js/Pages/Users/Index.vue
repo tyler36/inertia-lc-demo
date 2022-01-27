@@ -49,9 +49,10 @@
 </template>
 
 <script setup>
-import {ref, watch, defineAsyncComponent} from "vue";
+import {ref, watch, defineAsyncComponent, onMounted} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import debounce from "lodash/debounce";
+import {useCurrentUser} from '@/Composables/useCurrentUser';
 
 let Pagination = defineAsyncComponent(() => import("@/Shared/Pagination.vue"))
 
@@ -69,4 +70,7 @@ let Pagination = defineAsyncComponent(() => import("@/Shared/Pagination.vue"))
       replace: true
     })
   }, 300 ));
+
+  let currentUser = useCurrentUser();
+  console.log(currentUser.isALifer());
 </script>
