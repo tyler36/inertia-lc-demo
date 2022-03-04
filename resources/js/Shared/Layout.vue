@@ -9,6 +9,10 @@
             <div class="flex items-center">
                 <h1 class="font-bold text-lg">My App</h1>
                 <p class="text-sm ml-4">Welcome back, {{ username }}!</p>
+
+                <div class="text-sm ml-4">
+                    Latest Thread: <Link href="#" v-text="$page.props.threadLatest.title" ></Link>
+                </div>
             </div>
 
             <Nav />

@@ -8,6 +8,9 @@
                 <NavLink href="/users" :active="$page.component === 'Users'">Users</NavLink>
             </li>
             <li>
+                <NavLink href="/threads" :active="$page.component === 'Threads'">Threads</NavLink>
+            </li>
+            <li>
                 <NavLink href="/settings" :active="$page.component === 'Settings'">Settings</NavLink>
             </li>
 

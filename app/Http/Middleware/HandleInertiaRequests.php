@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Thread;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +43,8 @@ class HandleInertiaRequests extends Middleware
                 'user' => [
                     'username' => Auth::user()->name,
                 ]
-            ] : null
+            ] : null,
+            'threadLatest' => Thread::latest()->first(),
         ]);
     }
 }

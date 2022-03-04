@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -50,7 +51,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/users/create', function () {
-        return Inertia::render('Users/Create');
+        return Inertia::render('Users/Create',);
     })->can('create', 'App\Models\User');
 
     Route::post('/users', function () {
@@ -64,6 +65,8 @@ Route::middleware('auth')->group(function () {
 
         return redirect('/users');
     });
+
+    Route::get('/threads', [ThreadController::class, 'index']);
 
     Route::get('/settings', function () {
         return Inertia::render('Settings');
